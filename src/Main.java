@@ -1,62 +1,32 @@
-import javax.xml.transform.Source;
-import java.util.SplittableRandom;
-
 public class Main {
     public static void main(String[] args) {
-        String name;
-        //string is always in double quotes
-        name = "hemanth";
-        int numberOfReviews = 1;
-        double rating = 1.5;
-        Boolean loggedOn = true;
-        System.out.println(name + numberOfReviews +rating +loggedOn);
+        Integer[] nums = {2, 0, 343, 646, 43424};
 
-        System.out.println("Hemanth Programming".toUpperCase());
-        System.out.println("Hemanth Programming".toLowerCase());
-        System.out.println("Hemanth Programming".length());
-        System.out.println("Hemanth Programming".toLowerCase().contains("HEMANTH"));
-        //concatination
-        String firtName = "Hemanth";
-        String lastName = "Mahankali";
-        System.out.println(firtName.concat(lastName));
-        String username = "";
-        System.out.println(username.isEmpty());
-        String peachez = "Follow me on Instagram";
+        // Convert Integer[] to int[] for the method
+        int[] intNums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            intNums[i] = nums[i];
+        }
 
-        String newValuepeachez = "Follow me on Instagram !";
-        newValuepeachez = peachez;
+        Integer secondLargest = findSecondLargest(intNums);
+        System.out.println("Second Largest Number: " + secondLargest);
+    }
 
-        System.out.println(peachez.toUpperCase());
+    public static Integer findSecondLargest(int[] nums) {
+        if (nums == null || nums.length < 2) return null;
 
-        String hi = "Hello-World";
-        System.out.println(hi.charAt(2));
+        Integer first = null;
+        Integer second = null;
 
-        //indepth integers
+        for (int num : nums) {
+            if (first == null || num > first) {
+                second = first;
+                first = num;
+            } else if (num < first && (second == null || num > second)) {
+                second = num;
+            }
+        }
 
-        Integer numberOfLikes = 10;
-        System.out.println(numberOfLikes.doubleValue());
-
-        String numberOfComments = "10";
-        Integer numberOf = Integer.parseInt(numberOfComments);
-        System.out.println(numberOf);
-
-
-        //Integer Operators
-
-        Integer homeWork = 4;
-        double mydouble = homeWork.doubleValue();
-        System.out.println(mydouble);
-
-        //Difference Between int and Integer ???
-
-
-
-
-
-
-
-
-
-
+        return second;
     }
 }
