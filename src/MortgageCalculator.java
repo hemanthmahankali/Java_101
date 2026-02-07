@@ -12,7 +12,6 @@ public class MortgageCalculator {
     public float calculateMortgage() {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
-
         float monthlyInterestRate = annualInterestRate / PERCENT / MONTHS_IN_YEAR;
         int numberOfPayments = period * MONTHS_IN_YEAR;
 
